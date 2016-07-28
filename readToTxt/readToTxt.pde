@@ -5,7 +5,7 @@ int[] date = new int[3];
 int[] time = new int[2];
 String filename;
 void setup() {
-   mySerial = new Serial( this, Serial.list()[0],2*115200 );
+   mySerial = new Serial( this, Serial.list()[0],115200 );
    date[0]=day();
     date[1]=month();
    date[2]=year();

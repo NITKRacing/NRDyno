@@ -11,7 +11,7 @@ void setup() {
    date[2]=year();
    time[0]=hour();
    time[1]=minute();
-   filename = join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".txt";
+   filename = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".txt";
    output = createWriter(filename);
 }
 

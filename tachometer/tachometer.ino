@@ -1,5 +1,5 @@
 void setup() {
-  Serial.begin(2*115200);
+  Serial.begin(115200);
   attachInterrupt(0,alert,RISING); 
 }
 

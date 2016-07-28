@@ -10,17 +10,18 @@ void setup() {
    date[2]=year();
    time[0]=hour();
    time[1]=minute();
-   String d=join(nf(date,0),"-");
-   String t=join(nf(time,0),":");
-   String filename=d+"_"+t".txt";
-   
-   output = createWriter( filename);
+   output = createWriter(join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".txt");
 }
 void draw() {
     if (mySerial.available() > 0 ) {
          String value = mySerial.readString();
-         if ( value != null ) {
-              output.println( value );
+         if ( value != null  ) {
+              
+              int val= int(value);
+              if(val>300 && val<700)
+              {output.println( value );
+              }
+              flush();
          }
     }
 }

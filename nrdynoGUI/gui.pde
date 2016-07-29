@@ -32,6 +32,25 @@ public void stoprpmfield_change1(GTextField source, GEvent event) { //_CODE_:sto
 
 public void settings_click1(GButton source, GEvent event) { //_CODE_:settings:642696:
   println("button3 - GButton >> GEvent." + event + " @ " + millis());
+  window1 = GWindow.getWindow(this, "Settings - NRDyno", 0, 0, 600, 400, JAVA2D);
+  window1.noLoop();
+  window1.addDrawHandler(this, "win_draw2");
+  label6 = new GLabel(window1, 30, 70, 80, 20);
+  label6.setText("Unit");
+  label6.setTextBold();
+  label6.setOpaque(false);
+  label7 = new GLabel(window1, 30, 20, 100, 30);
+  label7.setText("Settings");
+  label7.setTextBold();
+  label7.setLocalColorScheme(GCScheme.RED_SCHEME);
+  label7.setOpaque(true);
+  imgButton3 = new GImageButton(window1, 410, 320, 180, 70, new String[] { "Picture1.png", "Picture1.png", "Picture1.png" } );
+  imgButton3.addEventHandler(this, "imgButton3_click1");
+  unitlist = new GDropList(window1, 140, 70, 90, 60, 2);
+  unitlist.setItems(loadStrings("list_832670"), 0);
+  unitlist.setLocalColorScheme(GCScheme.RED_SCHEME);
+  unitlist.addEventHandler(this, "unitlist_click1");
+  window1.loop();
 } //_CODE_:settings:642696:
 
 public void imgButton1_click1(GImageButton source, GEvent event) { //_CODE_:imgButton1:297195:
@@ -49,6 +68,18 @@ public void startrec_click1(GButton source, GEvent event) { //_CODE_:startrec:37
 public void setbutton_click1(GButton source, GEvent event) { //_CODE_:setbutton:747857:
   println("setbutton - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:setbutton:747857:
+
+synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:window1:301507:
+  appc.background(230);
+} //_CODE_:window1:301507:
+
+public void imgButton3_click1(GImageButton source, GEvent event) { //_CODE_:imgButton3:703340:
+  println("imgButton3 - GImageButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:imgButton3:703340:
+
+public void unitlist_click1(GDropList source, GEvent event) { //_CODE_:unitlist:832670:
+  println("unitlist - GDropList >> GEvent." + event + " @ " + millis());
+} //_CODE_:unitlist:832670:
 
 
 
@@ -134,6 +165,7 @@ public void createGUI(){
   setbutton.setTextBold();
   setbutton.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   setbutton.addEventHandler(this, "setbutton_click1");
+  
 }
 
 // Variable declarations 
@@ -158,3 +190,8 @@ GLabel prevppower;
 GLabel label10; 
 GLabel filesavedlabel; 
 GButton setbutton; 
+GWindow window1;
+GLabel label6; 
+GLabel label7; 
+GImageButton imgButton3; 
+GDropList unitlist; 

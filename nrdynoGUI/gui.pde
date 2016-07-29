@@ -32,7 +32,7 @@ public void stoprpmfield_change1(GTextField source, GEvent event) { //_CODE_:sto
 
 public void settings_click1(GButton source, GEvent event) { //_CODE_:settings:642696:
   println("button3 - GButton >> GEvent." + event + " @ " + millis());
-  window1 = GWindow.getWindow(this, "Settings - NRDyno", 0, 0, 600, 400, JAVA2D);
+    window1 = GWindow.getWindow(this, "Settings - NRDyno", 0, 0, 600, 400, JAVA2D);
   window1.noLoop();
   window1.addDrawHandler(this, "win_draw2");
   label6 = new GLabel(window1, 30, 70, 80, 20);
@@ -120,7 +120,7 @@ public void createGUI(){
   settings.setText("Settings");
   settings.setTextBold();
   settings.addEventHandler(this, "settings_click1");
-  imgButton1 = new GImageButton(this, 600, 200, 280, 90, new String[] { "Picture1.png", "Picture1.png", "Picture1.png" } );
+  imgButton1 = new GImageButton(this, 620, 200, 280, 90, new String[] { "Picture1.png", "Picture1.png", "Picture1.png" } );
   imgButton1.addEventHandler(this, "imgButton1_click1");
   panel1 = new GPanel(this, 390, 90, 330, 90, "   Parameters                      Current                    Previous");
   panel1.setCollapsible(false);
@@ -165,7 +165,7 @@ public void createGUI(){
   setbutton.setTextBold();
   setbutton.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   setbutton.addEventHandler(this, "setbutton_click1");
-  
+
 }
 
 // Variable declarations 

@@ -46,6 +46,10 @@ public void startrec_click1(GButton source, GEvent event) { //_CODE_:startrec:37
   println("button1 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:startrec:372962:
 
+public void setbutton_click1(GButton source, GEvent event) { //_CODE_:setbutton:747857:
+  println("setbutton - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:setbutton:747857:
+
 
 
 // Create all the GUI controls. 
@@ -71,14 +75,14 @@ public void createGUI(){
   label2.setText("Start RPM");
   label2.setTextBold();
   label2.setOpaque(false);
-  label3 = new GLabel(this, 20, 150, 110, 30);
+  label3 = new GLabel(this, 20, 130, 110, 30);
   label3.setText("Stop RPM");
   label3.setTextBold();
   label3.setOpaque(false);
   startrpmfield = new GTextField(this, 160, 90, 160, 30, G4P.SCROLLBARS_NONE);
   startrpmfield.setOpaque(true);
   startrpmfield.addEventHandler(this, "startrpmfield_change1");
-  stoprpmfield = new GTextField(this, 160, 150, 160, 30, G4P.SCROLLBARS_NONE);
+  stoprpmfield = new GTextField(this, 160, 130, 160, 30, G4P.SCROLLBARS_NONE);
   stoprpmfield.setOpaque(true);
   stoprpmfield.addEventHandler(this, "stoprpmfield_change1");
   settings = new GButton(this, 780, 30, 100, 30);
@@ -88,6 +92,8 @@ public void createGUI(){
   imgButton1 = new GImageButton(this, 600, 200, 280, 90, new String[] { "Picture1.png", "Picture1.png", "Picture1.png" } );
   imgButton1.addEventHandler(this, "imgButton1_click1");
   panel1 = new GPanel(this, 390, 90, 330, 90, "   Parameters                      Current                    Previous");
+  panel1.setCollapsible(false);
+  panel1.setDraggable(false);
   panel1.setText("   Parameters                      Current                    Previous");
   panel1.setTextBold();
   panel1.setOpaque(true);
@@ -123,6 +129,11 @@ public void createGUI(){
   label10.setOpaque(false);
   filesavedlabel = new GLabel(this, 180, 260, 380, 20);
   filesavedlabel.setOpaque(false);
+  setbutton = new GButton(this, 110, 170, 80, 30);
+  setbutton.setText("SET");
+  setbutton.setTextBold();
+  setbutton.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
+  setbutton.addEventHandler(this, "setbutton_click1");
 }
 
 // Variable declarations 
@@ -146,3 +157,4 @@ GLabel prevptorque;
 GLabel prevppower; 
 GLabel label10; 
 GLabel filesavedlabel; 
+GButton setbutton; 

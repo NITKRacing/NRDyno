@@ -138,6 +138,32 @@ public void settings_click1(GButton source, GEvent event) { //_CODE_:settings:64
   panel3.addControl(label16);
   panel3.addControl(label17);
   panel3.addControl(label18);
+  button1 = new GButton(window1, 500, 20, 80, 30);
+  button1.setText("SET");
+  button1.setTextBold();
+  button1.setLocalColorScheme(GCScheme.RED_SCHEME);
+  button1.addEventHandler(this, "button1_click1");
+  label1 = new GLabel(window1, 250, 70, 120, 20);
+  label1.setText("Roller Radius(cm)");
+  label1.setTextBold();
+  label1.setOpaque(false);
+  label19 = new GLabel(window1, 250, 110, 120, 20);
+  label19.setText("Roller Width (cm)");
+  label19.setTextBold();
+  label19.setOpaque(false);
+  label20 = new GLabel(window1, 250, 150, 120, 20);
+  label20.setText("Roller Mass(kg)");
+  label20.setTextBold();
+  label20.setOpaque(false);
+  textfield9 = new GTextField(window1, 380, 70, 100, 20, G4P.SCROLLBARS_NONE);
+  textfield9.setOpaque(true);
+  textfield9.addEventHandler(this, "textfield9_change1");
+  textfield10 = new GTextField(window1, 380, 110, 100, 20, G4P.SCROLLBARS_NONE);
+  textfield10.setOpaque(true);
+  textfield10.addEventHandler(this, "textfield10_change1");
+  textfield11 = new GTextField(window1, 380, 150, 100, 20, G4P.SCROLLBARS_NONE);
+  textfield11.setOpaque(true);
+  textfield11.addEventHandler(this, "textfield11_change1");
   window1.loop();
 } //_CODE_:settings:642696:
 

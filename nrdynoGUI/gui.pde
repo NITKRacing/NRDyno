@@ -213,6 +213,10 @@ public void textfield8_change1(GTextField source, GEvent event) { //_CODE_:textf
   println("textfield8 - GTextField >> GEvent." + event + " @ " + millis());
 } //_CODE_:textfield8:266076:
 
+public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:920222:
+  println("button1 - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:button1:920222:
+
 
 
 // Create all the GUI controls. 
@@ -346,7 +350,7 @@ public void createGUI(){
   panel3.setOpaque(true);
   panel3.addEventHandler(this, "panel3_Click1");
   label11 = new GLabel(window1, 10, 30, 110, 20);
-  label11.setText("Prim. Reduction");
+  label11.setText("1"  Reduction");
   label11.setTextBold();
   label11.setOpaque(false);
   label12 = new GLabel(window1, 10, 60, 110, 20);
@@ -407,6 +411,11 @@ public void createGUI(){
   panel3.addControl(label16);
   panel3.addControl(label17);
   panel3.addControl(label18);
+  button1 = new GButton(window1, 500, 20, 80, 30);
+  button1.setText("SET");
+  button1.setTextBold();
+  button1.setLocalColorScheme(GCScheme.RED_SCHEME);
+  button1.addEventHandler(this, "button1_click1");
   window1.loop();
 }
 
@@ -457,3 +466,4 @@ GLabel label15;
 GLabel label16; 
 GLabel label17; 
 GLabel label18; 
+GButton button1; 

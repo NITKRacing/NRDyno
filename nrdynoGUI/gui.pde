@@ -50,6 +50,98 @@ public void settings_click1(GButton source, GEvent event) { //_CODE_:settings:64
   unitlist.setItems(loadStrings("list_832670"), 0);
   unitlist.setLocalColorScheme(GCScheme.RED_SCHEME);
   unitlist.addEventHandler(this, "unitlist_click1");
+  panel2 = new GPanel(window1, 30, 110, 200, 90, "Default Values");
+  panel2.setText("Default Values");
+  panel2.setTextBold();
+  panel2.setLocalColorScheme(GCScheme.RED_SCHEME);
+  panel2.setOpaque(true);
+  panel2.addEventHandler(this, "panel2_Click1");
+  label8 = new GLabel(window1, -10, 30, 80, 20);
+  label8.setText("Start RPM");
+  label8.setTextBold();
+  label8.setOpaque(false);
+  label9 = new GLabel(window1, -10, 60, 80, 20);
+  label9.setText("Stop RPM");
+  label9.setTextBold();
+  label9.setOpaque(false);
+  textfield1 = new GTextField(window1, 80, 30, 110, 20, G4P.SCROLLBARS_NONE);
+  textfield1.setOpaque(true);
+  textfield1.addEventHandler(this, "textfield1_change1");
+  textfield2 = new GTextField(window1, 80, 60, 110, 20, G4P.SCROLLBARS_NONE);
+  textfield2.setOpaque(true);
+  textfield2.addEventHandler(this, "textfield2_change1");
+  panel2.addControl(label8);
+  panel2.addControl(label9);
+  panel2.addControl(textfield1);
+  panel2.addControl(textfield2);
+  panel3 = new GPanel(window1, 30, 210, 250, 150, "Reductions");
+  panel3.setText("Reductions");
+  panel3.setTextBold();
+  panel3.setLocalColorScheme(GCScheme.RED_SCHEME);
+  panel3.setOpaque(true);
+  panel3.addEventHandler(this, "panel3_Click1");
+  label11 = new GLabel(window1, 10, 30, 110, 20);
+  label11.setText("Prim. Reduction");
+  label11.setTextBold();
+  label11.setOpaque(false);
+  label12 = new GLabel(window1, 10, 60, 110, 20);
+  label12.setText("Trans. Reduction");
+  label12.setTextBold();
+  label12.setOpaque(false);
+  label13 = new GLabel(window1, 10, 90, 110, 20);
+  label13.setText("Final Reduction");
+  label13.setTextBold();
+  label13.setOpaque(false);
+  textfield3 = new GTextField(window1, 140, 30, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield3.setOpaque(true);
+  textfield3.addEventHandler(this, "textfield3_change1");
+  textfield4 = new GTextField(window1, 140, 60, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield4.setOpaque(true);
+  textfield4.addEventHandler(this, "textfield4_change1");
+  textfield5 = new GTextField(window1, 140, 90, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield5.setOpaque(true);
+  textfield5.addEventHandler(this, "textfield5_change1");
+  textfield6 = new GTextField(window1, 210, 30, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield6.setOpaque(true);
+  textfield6.addEventHandler(this, "textfield6_change1");
+  textfield7 = new GTextField(window1, 210, 60, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield7.setOpaque(true);
+  textfield7.addEventHandler(this, "textfield7_change1");
+  textfield8 = new GTextField(window1, 210, 90, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield8.setOpaque(true);
+  textfield8.addEventHandler(this, "textfield8_change1");
+  label14 = new GLabel(window1, 180, 30, 20, 20);
+  label14.setText(":");
+  label14.setTextBold();
+  label14.setOpaque(false);
+  label15 = new GLabel(window1, 180, 60, 20, 20);
+  label15.setText(":");
+  label15.setTextBold();
+  label15.setOpaque(false);
+  label16 = new GLabel(window1, 180, 90, 20, 20);
+  label16.setText(":");
+  label16.setTextBold();
+  label16.setOpaque(false);
+  label17 = new GLabel(window1, 10, 120, 110, 20);
+  label17.setText("Total Reduction");
+  label17.setTextBold();
+  label17.setOpaque(false);
+  label18 = new GLabel(window1, 140, 120, 100, 20);
+  label18.setOpaque(false);
+  panel3.addControl(label11);
+  panel3.addControl(label12);
+  panel3.addControl(label13);
+  panel3.addControl(textfield3);
+  panel3.addControl(textfield4);
+  panel3.addControl(textfield5);
+  panel3.addControl(textfield6);
+  panel3.addControl(textfield7);
+  panel3.addControl(textfield8);
+  panel3.addControl(label14);
+  panel3.addControl(label15);
+  panel3.addControl(label16);
+  panel3.addControl(label17);
+  panel3.addControl(label18);
   window1.loop();
 } //_CODE_:settings:642696:
 
@@ -80,6 +172,46 @@ public void imgButton3_click1(GImageButton source, GEvent event) { //_CODE_:imgB
 public void unitlist_click1(GDropList source, GEvent event) { //_CODE_:unitlist:832670:
   println("unitlist - GDropList >> GEvent." + event + " @ " + millis());
 } //_CODE_:unitlist:832670:
+
+public void panel2_Click1(GPanel source, GEvent event) { //_CODE_:panel2:494021:
+  println("panel2 - GPanel >> GEvent." + event + " @ " + millis());
+} //_CODE_:panel2:494021:
+
+public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:751277:
+  println("textfield1 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield1:751277:
+
+public void textfield2_change1(GTextField source, GEvent event) { //_CODE_:textfield2:391116:
+  println("textfield2 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield2:391116:
+
+public void panel3_Click1(GPanel source, GEvent event) { //_CODE_:panel3:580920:
+  println("panel3 - GPanel >> GEvent." + event + " @ " + millis());
+} //_CODE_:panel3:580920:
+
+public void textfield3_change1(GTextField source, GEvent event) { //_CODE_:textfield3:441029:
+  println("textfield3 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield3:441029:
+
+public void textfield4_change1(GTextField source, GEvent event) { //_CODE_:textfield4:329895:
+  println("textfield4 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield4:329895:
+
+public void textfield5_change1(GTextField source, GEvent event) { //_CODE_:textfield5:817152:
+  println("textfield5 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield5:817152:
+
+public void textfield6_change1(GTextField source, GEvent event) { //_CODE_:textfield6:261626:
+  println("textfield6 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield6:261626:
+
+public void textfield7_change1(GTextField source, GEvent event) { //_CODE_:textfield7:826368:
+  println("textfield7 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield7:826368:
+
+public void textfield8_change1(GTextField source, GEvent event) { //_CODE_:textfield8:266076:
+  println("textfield8 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield8:266076:
 
 
 
@@ -165,7 +297,117 @@ public void createGUI(){
   setbutton.setTextBold();
   setbutton.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   setbutton.addEventHandler(this, "setbutton_click1");
-
+  window1 = GWindow.getWindow(this, "Settings - NRDyno", 0, 0, 600, 400, JAVA2D);
+  window1.noLoop();
+  window1.addDrawHandler(this, "win_draw2");
+  label6 = new GLabel(window1, 30, 70, 80, 20);
+  label6.setText("Unit");
+  label6.setTextBold();
+  label6.setOpaque(false);
+  label7 = new GLabel(window1, 30, 20, 100, 30);
+  label7.setText("Settings");
+  label7.setTextBold();
+  label7.setLocalColorScheme(GCScheme.RED_SCHEME);
+  label7.setOpaque(true);
+  imgButton3 = new GImageButton(window1, 410, 320, 180, 70, new String[] { "Picture1.png", "Picture1.png", "Picture1.png" } );
+  imgButton3.addEventHandler(this, "imgButton3_click1");
+  unitlist = new GDropList(window1, 140, 70, 90, 60, 2);
+  unitlist.setItems(loadStrings("list_832670"), 0);
+  unitlist.setLocalColorScheme(GCScheme.RED_SCHEME);
+  unitlist.addEventHandler(this, "unitlist_click1");
+  panel2 = new GPanel(window1, 30, 110, 200, 90, "Default Values");
+  panel2.setText("Default Values");
+  panel2.setTextBold();
+  panel2.setLocalColorScheme(GCScheme.RED_SCHEME);
+  panel2.setOpaque(true);
+  panel2.addEventHandler(this, "panel2_Click1");
+  label8 = new GLabel(window1, -10, 30, 80, 20);
+  label8.setText("Start RPM");
+  label8.setTextBold();
+  label8.setOpaque(false);
+  label9 = new GLabel(window1, -10, 60, 80, 20);
+  label9.setText("Stop RPM");
+  label9.setTextBold();
+  label9.setOpaque(false);
+  textfield1 = new GTextField(window1, 80, 30, 110, 20, G4P.SCROLLBARS_NONE);
+  textfield1.setOpaque(true);
+  textfield1.addEventHandler(this, "textfield1_change1");
+  textfield2 = new GTextField(window1, 80, 60, 110, 20, G4P.SCROLLBARS_NONE);
+  textfield2.setOpaque(true);
+  textfield2.addEventHandler(this, "textfield2_change1");
+  panel2.addControl(label8);
+  panel2.addControl(label9);
+  panel2.addControl(textfield1);
+  panel2.addControl(textfield2);
+  panel3 = new GPanel(window1, 30, 210, 250, 150, "Reductions");
+  panel3.setText("Reductions");
+  panel3.setTextBold();
+  panel3.setLocalColorScheme(GCScheme.RED_SCHEME);
+  panel3.setOpaque(true);
+  panel3.addEventHandler(this, "panel3_Click1");
+  label11 = new GLabel(window1, 10, 30, 110, 20);
+  label11.setText("Prim. Reduction");
+  label11.setTextBold();
+  label11.setOpaque(false);
+  label12 = new GLabel(window1, 10, 60, 110, 20);
+  label12.setText("Trans. Reduction");
+  label12.setTextBold();
+  label12.setOpaque(false);
+  label13 = new GLabel(window1, 10, 90, 110, 20);
+  label13.setText("Final Reduction");
+  label13.setTextBold();
+  label13.setOpaque(false);
+  textfield3 = new GTextField(window1, 140, 30, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield3.setOpaque(true);
+  textfield3.addEventHandler(this, "textfield3_change1");
+  textfield4 = new GTextField(window1, 140, 60, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield4.setOpaque(true);
+  textfield4.addEventHandler(this, "textfield4_change1");
+  textfield5 = new GTextField(window1, 140, 90, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield5.setOpaque(true);
+  textfield5.addEventHandler(this, "textfield5_change1");
+  textfield6 = new GTextField(window1, 210, 30, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield6.setOpaque(true);
+  textfield6.addEventHandler(this, "textfield6_change1");
+  textfield7 = new GTextField(window1, 210, 60, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield7.setOpaque(true);
+  textfield7.addEventHandler(this, "textfield7_change1");
+  textfield8 = new GTextField(window1, 210, 90, 30, 20, G4P.SCROLLBARS_NONE);
+  textfield8.setOpaque(true);
+  textfield8.addEventHandler(this, "textfield8_change1");
+  label14 = new GLabel(window1, 180, 30, 20, 20);
+  label14.setText(":");
+  label14.setTextBold();
+  label14.setOpaque(false);
+  label15 = new GLabel(window1, 180, 60, 20, 20);
+  label15.setText(":");
+  label15.setTextBold();
+  label15.setOpaque(false);
+  label16 = new GLabel(window1, 180, 90, 20, 20);
+  label16.setText(":");
+  label16.setTextBold();
+  label16.setOpaque(false);
+  label17 = new GLabel(window1, 10, 120, 110, 20);
+  label17.setText("Total Reduction");
+  label17.setTextBold();
+  label17.setOpaque(false);
+  label18 = new GLabel(window1, 140, 120, 100, 20);
+  label18.setOpaque(false);
+  panel3.addControl(label11);
+  panel3.addControl(label12);
+  panel3.addControl(label13);
+  panel3.addControl(textfield3);
+  panel3.addControl(textfield4);
+  panel3.addControl(textfield5);
+  panel3.addControl(textfield6);
+  panel3.addControl(textfield7);
+  panel3.addControl(textfield8);
+  panel3.addControl(label14);
+  panel3.addControl(label15);
+  panel3.addControl(label16);
+  panel3.addControl(label17);
+  panel3.addControl(label18);
+  window1.loop();
 }
 
 // Variable declarations 
@@ -195,3 +437,23 @@ GLabel label6;
 GLabel label7; 
 GImageButton imgButton3; 
 GDropList unitlist; 
+GPanel panel2; 
+GLabel label8; 
+GLabel label9; 
+GTextField textfield1; 
+GTextField textfield2; 
+GPanel panel3; 
+GLabel label11; 
+GLabel label12; 
+GLabel label13; 
+GTextField textfield3; 
+GTextField textfield4; 
+GTextField textfield5; 
+GTextField textfield6; 
+GTextField textfield7; 
+GTextField textfield8; 
+GLabel label14; 
+GLabel label15; 
+GLabel label16; 
+GLabel label17; 
+GLabel label18; 

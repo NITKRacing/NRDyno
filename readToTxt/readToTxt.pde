@@ -34,7 +34,7 @@ String lines[] = loadStrings(filename);
 println("there are " + lines.length + " lines");
 for (int i = 0 ; i < lines.length; i++) {
   int a = int(lines[i]);
-  if(a>300 && a<700)
+
   println(a);
   
 }

@@ -350,7 +350,7 @@ public void createGUI(){
   panel3.setOpaque(true);
   panel3.addEventHandler(this, "panel3_Click1");
   label11 = new GLabel(window1, 10, 30, 110, 20);
-  label11.setText("1"  Reduction");
+  label11.setText("Prim. Reduction");
   label11.setTextBold();
   label11.setOpaque(false);
   label12 = new GLabel(window1, 10, 60, 110, 20);

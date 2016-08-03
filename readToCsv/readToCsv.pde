@@ -1,19 +1,11 @@
 import processing.serial.*;
 Serial mySerial;
 PrintWriter output;
-int[] date = new int[3];
-int[] time = new int[2];
+
 String filename,csvfile;
 Table table;
 void setup() {
    mySerial = new Serial( this, Serial.list()[0],115200 );
-   date[0]=day();
-    date[1]=month();
-   date[2]=year();
-   time[0]=hour();
-   time[1]=minute();
-   filename = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".txt";
-   csvfile = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".csv";
    output = createWriter(filename);
 }
 
@@ -47,3 +39,15 @@ saveTable(table,csvfile);
 println("there are " + lines.length + " lines");
     exit();  // Stops the program
 }
+
+void getFilename(){
+  int[] date = new int[3];
+int[] time = new int[2];
+date[0]=day();
+    date[1]=month();
+   date[2]=year();
+   time[0]=hour();
+   time[1]=minute();
+   filename = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".txt";
+   csvfile = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".csv";}
+   

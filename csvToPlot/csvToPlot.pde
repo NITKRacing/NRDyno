@@ -1,8 +1,8 @@
 import grafica.*;
-
+PImage logo;
 void setup() {
-  size(800, 350); //Change size of window here
-  background(150);
+  size(1200,700); //Change size of window here
+  background(255);
 
   // Prepare the points for the plot
   Table table=loadTable("data.csv","header");
@@ -19,10 +19,10 @@ void setup() {
 
   // Create a new plot and set its position on the screen
   GPlot plot = new GPlot(this);
-  plot.setPos(80, 5); // Change position of plot in window here
+  plot.setPos(200, 5); // Change position of plot in window here
   // or all in one go
   // GPlot plot = new GPlot(this, 25, 25);
-plot.setDim(600,250); // Change size of plot here
+plot.setDim(900,600); // Change size of plot here
 
   // Set the plot title and the axis labels
   plot.setTitleText("Timestamp");
@@ -57,4 +57,8 @@ plot.beginDraw();
 plot.addLayer("Torque",points2);
 
 plot.endDraw();
+logo = loadImage("logo.png");
+logo.resize(240,100);
+image(logo,0,580);
+saveFrame("1.jpg");
 }

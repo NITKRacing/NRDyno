@@ -2,7 +2,7 @@ import processing.serial.*;
 Serial mySerial;
 PrintWriter output;
 
-String filename,csvfile;
+String filename,csvfile,jpgfile;
 Table table;
 void setup() {
    mySerial = new Serial( this, Serial.list()[0],115200 );
@@ -49,5 +49,7 @@ date[0]=day();
    time[0]=hour();
    time[1]=minute();
    filename = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".txt";
-   csvfile = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".csv";}
+   csvfile = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".csv";
+ jpgfile = "/log/"+join(nf(date,0),"-")+"_"+join(nf(time,0),"-")+".jpg";
+ }
    

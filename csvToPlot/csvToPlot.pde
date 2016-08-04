@@ -52,7 +52,7 @@ plot.getLayer("Torque").setLineWidth(5.0);
   
   
 logo = loadImage("logo.png");
-logo.resize(180,80);
-image(logo,400,10);
+logo.resize(200,80);
+image(logo,100,10);
 saveFrame("1.jpg");
 }

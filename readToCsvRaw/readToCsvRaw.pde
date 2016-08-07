@@ -4,7 +4,7 @@ PrintWriter output;
 
 String filename,csvfile,jpgfile;
 Table table;
-void setup() {
+void setup() { getFilename();
    mySerial = new Serial( this, Serial.list()[0],115200 );
    output = createWriter(filename);
 }
@@ -13,7 +13,7 @@ void draw() {
     if (mySerial.available() > 0 ) {
          String value = mySerial.readString();
         if ( value!=null) {
-          
+        
               output.println( value );
          }
     }
@@ -29,9 +29,11 @@ table=new Table();
 table.addColumn("timestamp",Table.INT);
 
 for (int i = 0 ; i < lines.length; i++) {
-  table.addRow();
+  
   int a = int(lines[i]);
-  table.setInt(i,"timestamp",a); 
+  if(a!=0){
+  //table.addRow();
+  table.setInt(i,"timestamp",a); }
   println(a);
   
 }

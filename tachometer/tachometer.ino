@@ -7,6 +7,5 @@ void setup() {
 void loop() {
 }
 void alert(){
-  Serial.println(micros());
-  
+  Serial.print(micros());
   }

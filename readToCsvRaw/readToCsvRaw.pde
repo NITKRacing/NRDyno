@@ -13,7 +13,6 @@ void draw() {
     if (mySerial.available() > 0 ) {
          String value = mySerial.readString();
         if ( value!=null) {
-        
               output.println( value );
          }
     }

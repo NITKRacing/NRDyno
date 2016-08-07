@@ -4,7 +4,7 @@ void setup() {
   size(1000,750); //Change size of window here
   background(255);
   // Prepare the points for the plot
-  Table table=loadTable("data.csv","header");
+  Table table=loadTable("datafinal.csv","header");
   GPointsArray points = new GPointsArray();
   GPointsArray points2 = new GPointsArray();
   for (int i = 0; i < table.getRowCount(); i++) {

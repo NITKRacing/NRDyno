@@ -19,6 +19,11 @@ public void stoprec_click1(GButton source, GEvent event) { //_CODE_:stoprec:9051
   label22.setText("StandBy...");
   label22.setTextBold();
   noLoop();
+  output.flush();  // Writes the remaining data to the file
+    output.close(); 
+    toCsv();// Finishes the file
+   param();
+   
 } //_CODE_:stoprec:905114:
 
 public void settings_click1(GButton source, GEvent event) { //_CODE_:settings:642696:
@@ -159,6 +164,7 @@ public void settings_click1(GButton source, GEvent event) { //_CODE_:settings:64
   textfield11 = new GTextField(window1, 380, 150, 100, 20, G4P.SCROLLBARS_NONE);
   textfield11.setOpaque(true);
   textfield11.addEventHandler(this, "textfield11_change1");
+  getDefault();
   window1.loop();
 } //_CODE_:settings:642696:
 
@@ -228,8 +234,8 @@ public void textfield8_change1(GTextField source, GEvent event) { //_CODE_:textf
 } //_CODE_:textfield8:266076:
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:920222:
-  println("button1 - GButton >> GEvent." + event + " @ " + millis());
- noLoop();
+  println("button1234 - GButton >> GEvent." + event + " @ " + millis());
+setDefault();
 
 } //_CODE_:button1:920222:
 

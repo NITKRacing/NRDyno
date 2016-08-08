@@ -2,6 +2,7 @@
 import g4p_controls.*;
 import processing.serial.*;
 int a=0;
+float b=5.098;
 public void setup(){
   size(900, 300, JAVA2D);
    
@@ -17,7 +18,7 @@ public void draw(){
  println(a++);
  label22.setTextBold();
  label22.setText("Recording");
- 
+ textfield3.setText(String.valueOf(b));
  }
 
 

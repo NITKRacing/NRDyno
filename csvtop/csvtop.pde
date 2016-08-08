@@ -1,35 +1,27 @@
-import javax.swing.JFrame;
 import grafica.*;
 PImage logo;
-
-PFrame f;
-secondApplet s;
-
-void setup() {
-  size(600, 340);
-
-}
-
-void draw() {
-  background(255, 0, 0);
-  fill(255);
-}     
-
-void mousePressed(){
-
-  PFrame f = new PFrame();
-}
-
-
-public class secondApplet extends PApplet {
-
-  public void setup() {
-  size(1000,750); //Change size of window here
-  background(255);
-  // Prepare the points for the plot
-  Table table=loadTable("datafinal.csv","header");
-  GPointsArray points = new GPointsArray();
+Table table;
+ GPointsArray points = new GPointsArray();
   GPointsArray points2 = new GPointsArray();
+void setup() {
+  size(100, 100);
+ 
+  String[] args = {"YourSketchNameHere"};
+  SecondApplet sa = new SecondApplet();
+  PApplet.runSketch(args, sa);
+}
+ 
+void draw() {
+  background(0);
+  ellipse(50, 50, 10, 10);
+}     
+ 
+public class SecondApplet extends PApplet {
+ 
+  public void settings() {
+    size(1000,750);
+    table=loadTable("datafinal.csv","header");
+ 
   for (int i = 0; i < table.getRowCount(); i++) {
     int rpm=table.getInt(i,"rpm");
     int torque=table.getInt(i,"torque");
@@ -37,9 +29,8 @@ public class secondApplet extends PApplet {
     points.add(rpm,torque);
     points2.add(rpm,power);
   }
-
-  // Create a new plot and set its position on the screen
-  GPlot plot = new GPlot(this);
+  
+   GPlot plot = new GPlot(this);
   plot.setPos(0, 50); // Change position of plot in window here
   plot.setDim(900,600); // Change size of plot here
 
@@ -78,21 +69,14 @@ logo = loadImage("logo.png");
 logo.resize(200,80);
 image(logo,100,10);
 saveFrame("1.jpg");
-     noLoop();
+
   }
   public void draw() {
-  
-  }
-}
+   background(255);
+  // Prepare the points for the plot
 
-public class PFrame extends JFrame {
-  public PFrame() {
-
-    setBounds(0, 0, 600, 340);
-    s = new secondApplet();
-    //add(s);
-    //s.init();
-    println("birh");
-    show();
+  // Create a new plot and set its position on the screen
+ 
+noLoop();
   }
 }

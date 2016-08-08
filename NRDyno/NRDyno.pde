@@ -149,5 +149,5 @@ table=loadTable(csvfile,"header");
  
  void csvPlot()
  {
-   
+   size(1000,750); 
  }

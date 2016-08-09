@@ -43,7 +43,7 @@ public void customGUI()
 
 void getDefault()
 {  
-  def = loadTable("default.csv","header");
+  def = loadTable("/data/default.csv","header");
   textfield1.setText(String.valueOf(def.getInt(0,"startr")));
   textfield2.setText(String.valueOf(def.getInt(0,"stopr")));
   textfield9.setText(String.valueOf(def.getFloat(0,"radius")));
@@ -61,7 +61,7 @@ void getDefault()
 
 void setDefault()
 {
-  def=loadTable("default.csv","header");
+  def=loadTable("/data/default.csv","header");
   def.setInt(0,"startr",Integer.valueOf(textfield1.getText()));
   def.setInt(0,"stopr",Integer.valueOf(textfield2.getText()));
   def.setFloat(0,"radius",Float.valueOf(textfield9.getText()));
@@ -73,7 +73,7 @@ void setDefault()
   def.setFloat(0,"trans2",Float.valueOf(textfield7.getText()));
   def.setFloat(0,"final1",Float.valueOf(textfield5.getText()));
   def.setFloat(0,"final2",Float.valueOf(textfield8.getText()));
-  saveTable(def,"default.csv");
+  saveTable(def,"/data/default.csv");
   
 }
 
@@ -95,8 +95,7 @@ date[0]=day();
 }
 
 void toCsv()
-{label22.setText("Processing...");
-  label22.setTextBold();
+{
   String lines[] = loadStrings(filename);
 table=new Table();
 table.addColumn("timestamp",Table.INT);

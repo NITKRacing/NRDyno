@@ -16,7 +16,7 @@
 
 public void stoprec_click1(GButton source, GEvent event) { //_CODE_:stoprec:905114:
   println("button2 - GButton >> GEvent." + event + " @ " + millis());
-  label22.setText("StandBy...");
+  label22.setText("Ready");
   label22.setTextBold();
   
   noLoop();
@@ -310,13 +310,15 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:plot2
   plot.endDraw();
   
 
-  logo = loadImage("logo.png");
+  logo = loadImage("/data/logo.png");
   logo.resize(200, 80);
   plot2.image(logo, 100, 10);
-  logo2=loadImage("nrd.png");
+  logo2=loadImage("/data/nrd.png");
   logo2.resize(200,80);
   plot2.image(logo2,680,10);
   plot2.saveFrame(jpgfile);
+  label22.setText("Ready");
+  label22.setTextBold();
    //param();
    
 } //_CODE_:plot2:429424:

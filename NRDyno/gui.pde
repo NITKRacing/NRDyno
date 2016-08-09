@@ -18,12 +18,17 @@ public void stoprec_click1(GButton source, GEvent event) { //_CODE_:stoprec:9051
   println("button2 - GButton >> GEvent." + event + " @ " + millis());
   label22.setText("StandBy...");
   label22.setTextBold();
+  
   noLoop();
   output.flush();  // Writes the remaining data to the file
     output.close(); 
-    toCsv();// Finishes the file
-   param();
-   
+   toCsv();
+ param();
+ 
+plot2 = GWindow.getWindow(this, "Plot", 0, 0, 1000, 750, JAVA2D);
+  plot2.noLoop();
+  plot2.addDrawHandler(this, "win_draw1");
+  plot2.loop();
 } //_CODE_:stoprec:905114:
 
 public void settings_click1(GButton source, GEvent event) { //_CODE_:settings:642696:
@@ -178,6 +183,9 @@ public void panel1_Click1(GPanel source, GEvent event) { //_CODE_:panel1:235688:
 
 public void startrec_click1(GButton source, GEvent event) { //_CODE_:startrec:372962:
   println("button1 - GButton >> GEvent." + event + " @ " + millis());
+  getFilename();
+ // mySerial = new Serial( this, Serial.list()[0],115200 );
+   output = createWriter(filename);
   loop();
 } //_CODE_:startrec:372962:
 
@@ -250,6 +258,68 @@ public void textfield10_change1(GTextField source, GEvent event) { //_CODE_:text
 public void textfield11_change1(GTextField source, GEvent event) { //_CODE_:textfield11:913943:
   println("textfield11 - GTextField >> GEvent." + event + " @ " + millis());
 } //_CODE_:textfield11:913943:
+
+synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:plot2:429424:
+  appc.background(230);
+//  toCsv();
+//  param();
+   Table table=loadTable(paramfile, "header");
+  GPointsArray points = new GPointsArray();
+  GPointsArray points2 = new GPointsArray();
+  for (int i = 0; i < table.getRowCount(); i++) {
+    int rpm=table.getInt(i, "rpm");
+    int torque=table.getInt(i, "torque");
+    int power=table.getInt(i, "power");
+    points.add(rpm, torque);
+    points2.add(rpm, power);
+  }
+
+  // Create a new plot and set its position on the screen
+  GPlot plot = new GPlot(plot2);
+  plot.setPos(0, 50); // Change position of plot in window here
+  plot.setDim(900, 600); // Change size of plot here
+
+  // Set the plot title and the axis labels
+  // plot.setTitleText("DynoRun");
+  plot.getXAxis().setAxisLabelText("RPM");
+  plot.getYAxis().setAxisLabelText("Power/Torque");
+
+  // Add the points
+
+  plot.addLayer("Power", points2);
+  plot.getLayer("Power").setLineColor(color(200, 0, 0, 300));
+  plot.getLayer("Power").setLineWidth(5.0);
+  plot.addLayer("Torque", points);
+  plot.getLayer("Torque").setLineColor(color(90, 90, 90, 300));
+  plot.getLayer("Torque").setLineWidth(5.0);
+  // Draw it!
+
+
+  plot.beginDraw();
+  plot.drawBox();
+  plot.drawXAxis();
+  plot.drawYAxis();
+  plot.drawTitle();
+  plot.drawGridLines(GPlot.VERTICAL);
+  plot.drawGridLines(GPlot.HORIZONTAL);
+  plot.setLineWidth(8.0);
+  //plot.addPoints(points);
+  plot.drawLines();
+  plot.drawLegend(new String[] {"Power(HP)", "Torque(N-m)"}, new float[] {0.07, 0.22}, 
+    new float[] {0.92, 0.92});
+  plot.endDraw();
+  
+
+  logo = loadImage("logo.png");
+  logo.resize(200, 80);
+  plot2.image(logo, 100, 10);
+  logo2=loadImage("nrd.png");
+  logo2.resize(200,80);
+  plot2.image(logo2,680,10);
+  plot2.saveFrame(jpgfile);
+   //param();
+   
+} //_CODE_:plot2:429424:
 
 
 
@@ -453,6 +523,11 @@ public void createGUI(){
   textfield11 = new GTextField(window1, 380, 150, 100, 20, G4P.SCROLLBARS_NONE);
   textfield11.setOpaque(true);
   textfield11.addEventHandler(this, "textfield11_change1");
+ /* plot2 = GWindow.getWindow(this, "Plot", 0, 0, 1000, 750, JAVA2D);
+  plot2.noLoop();
+  plot2.addDrawHandler(this, "win_draw1");
+  
+  plot2.loop();*/
   window1.loop();
 }
 
@@ -505,3 +580,4 @@ GLabel label20;
 GTextField textfield9; 
 GTextField textfield10; 
 GTextField textfield11; 
+GWindow plot2;

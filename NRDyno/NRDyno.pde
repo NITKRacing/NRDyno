@@ -15,8 +15,8 @@ public void setup(){
   createGUI();
   customGUI();
   getDefault();
-  getFilename();
-  mySerial = new Serial( this, Serial.list()[0],115200 );
+ getFilename();
+ mySerial = new Serial( this, Serial.list()[0],115200 );
    output = createWriter(filename);
   // Place your setup code here
   
@@ -95,7 +95,8 @@ date[0]=day();
 }
 
 void toCsv()
-{
+{label22.setText("Processing...");
+  label22.setTextBold();
   String lines[] = loadStrings(filename);
 table=new Table();
 table.addColumn("timestamp",Table.INT);
@@ -147,7 +148,3 @@ table=loadTable(csvfile,"header");
 }
  
  
- void csvPlot()
- {
-   size(1000,750); 
- }

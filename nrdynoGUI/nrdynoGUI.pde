@@ -2,7 +2,7 @@
 import g4p_controls.*;
 import processing.serial.*;
 import grafica.*;
-PImage logo;
+PImage logo,logo2;
 int a=0;
 float b=5.098;
 public void setup(){
